@@ -1,0 +1,89 @@
+.homePageContainer {
+  background: url(../../public/cyberpunk-pixel-art.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 89.7vh;
+  display: flex;
+  font-family: "Zen Dots", cursive;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid white;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  background-color: black;
+  border-radius: 30px;
+  box-shadow: 0 8px 8px -4px black;
+}
+
+.titleLoginCard {
+  color: greenyellow;
+  font-family: "Zen Dots", cursive;
+  font-size: 27px;
+  margin-top: 15px;
+}
+
+.loginForm {
+  margin-top: 50px;
+}
+.inputLogin {
+  margin-bottom: 30px;
+}
+
+.inputSenha {
+  margin-bottom: 70px;
+}
+
+.loginForm label {
+  display: inline-block;
+  color: #00ff51ff;
+  font-size: 21px;
+  margin-bottom: 10px;
+  margin-left: 7px;
+}
+
+.loginForm input,
+.loginForm input:hover,
+.loginForm input:focus {
+  display: inline-block;
+  height: 30px;
+  width: 350px;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  font-size: 14px;
+  border-radius: 30px;
+  padding-left: 7px;
+  background-color: rgba(112, 107, 128, 0.43);
+  font-weight: 600;
+  color: white;
+}
+
+.loginForm input:focus {
+  background-color: rgba(240, 235, 255, 0.43);
+}
+
+.buttonLogin {
+  text-align: center;
+}
+
+.buttonLogin button {
+  width: 200px;
+  height: 37px;
+  border-radius: 30px;
+  background-color: transparent;
+  border: 3px solid white;
+  font-weight: 700;
+  color: white;
+}
+
+.buttonLogin button:hover {
+  color: #00ff51ff;
+  border: 3px solid #00ff51ff;
+}

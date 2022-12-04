@@ -1,0 +1,35 @@
+.mainNav {
+  background-color: black;
+  height: 100px;
+  margin: 0;
+  position: fixed;
+  width: 100vw;
+}
+
+.imgLogo {
+  position: absolute;
+  left: 170px;
+}
+
+.mainNav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 170px;
+  margin-top: 37px;
+}
+
+.mainNav li {
+  margin-right: 30px;
+  color: white;
+  font-size: 17px;
+  font-family: "Zen Dots", cursive;
+}
+
+.mainNav li:hover {
+  color: greenyellow;
+}
+
+.logoLI {
+  justify-content: flex-start;
+}
