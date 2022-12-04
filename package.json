@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-mongodb-login-generic",
+  "name": "nextjs-generic-login",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,7 +17,6 @@
     "cookie": "^0.5.0",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.6",
-    "js-cookie": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.12.1",
     "next": "13.0.6",

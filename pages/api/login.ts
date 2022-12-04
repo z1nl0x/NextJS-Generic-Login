@@ -51,6 +51,7 @@ export default async function handler(
 
       if (!validPassword) {
         res.status(401).json({ message: "Senha inválida", payload: null });
+        client.close();
       } else {
         const token = jwt.sign(
           {
@@ -72,7 +73,8 @@ export default async function handler(
 
         res
           .status(200)
-          .json({ message: "Usuário encontrado!", payload: "success" });
+          .json({ message: "Usuário logado!", payload: serialized });
+        client.close();
       }
     }
 

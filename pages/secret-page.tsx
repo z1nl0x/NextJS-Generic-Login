@@ -1,37 +1,42 @@
-import { GetServerSideProps } from "next";
-import React from "react";
-// import Cookies from "js-cookie";
-
-const SecretPage = () => {
-  // console.log(Cookies.get("AuthUser"));
-  return (
-    <div>
-      <h1>SECRET USER PAGE!</h1>
-    </div>
-  );
-};
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
+import React, { useContext } from "react";
+import AuthContext from "../components/context/auth-context";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const { cookies } = req;
 
-  return {
-    props: {},
-  };
+  const authToken = cookies.AuthUser;
+
+  let logged: boolean = false;
+
+  if (!authToken) {
+    logged = false;
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  } else {
+    logged = true;
+    return {
+      props: {},
+    };
+  }
 };
 
-// export async function getServerSideProps({ context }) {
-//   const res = await fetch(`https://.../data`)
-//   const data = await res.json()
-
-//   if (!data) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: { data }, // will be passed to the page component as props
-//   }
-// }
+const SecretPage = ({}: InferGetServerSidePropsType<
+  typeof getServerSideProps
+>) => {
+  return (
+    <div>
+      <h1>SECRET-PAGE</h1>
+    </div>
+  );
+};
 
 export default SecretPage;

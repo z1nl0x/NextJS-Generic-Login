@@ -1,13 +1,12 @@
-import React, { FormEvent, useRef } from "react";
+import React, { FormEvent, useRef, useContext } from "react";
 import styles from "./Login.module.css";
+import AuthContext from "../context/auth-context";
 
-type registerProps = {
-  onLoginUser: (userData: { email: string; password: string }) => {};
-};
-
-function Login({ onLoginUser }: registerProps) {
+function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+
+  const authCtx = useContext(AuthContext);
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
@@ -20,7 +19,7 @@ function Login({ onLoginUser }: registerProps) {
       password: enteredPassword,
     };
 
-    onLoginUser(loginData);
+    authCtx.loggin(loginData);
   };
 
   return (

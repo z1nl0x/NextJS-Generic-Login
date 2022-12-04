@@ -1,9 +1,14 @@
 import React, { createContext } from "react";
 
+type loginData = {
+  email: string;
+  password: string;
+};
+
 export interface authUserInterfaceContext {
-  token: string;
+  token: string | null;
   isLoggedIn: boolean;
-  loggin: () => void;
+  loggin: (data: loginData) => void;
   loggout: () => void;
 }
 
