@@ -9,7 +9,11 @@ const SecretPage = () => {
   if (status === "unauthenticated") {
     router.push("/");
   } else if (status === "loading") {
-    return <div className={styles.titleH1}>Loading...</div>;
+    return (
+      <div>
+        <h1 className={styles.titleH1}>Loading...</h1>
+      </div>
+    );
   } else {
     return (
       <>
