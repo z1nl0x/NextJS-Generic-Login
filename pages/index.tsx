@@ -15,8 +15,8 @@ export default function Home({
 
   if (status === "loading") {
     return (
-      <div>
-        <h1 style={{ textAlign: "center", marginTop: "50px" }}>Loading...</h1>
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <h1>Loading...</h1>
       </div>
     );
   } else if (status === "authenticated") {
