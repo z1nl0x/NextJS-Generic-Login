@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link href="/secret-page">SECRET</Link>
       </li>
       <Link
-        href="/api/auth/signout"
+        href="/"
         onClick={() => {
           signOut({ callbackUrl: `${process.env.VERCEL_URL}`, redirect: true });
         }}
