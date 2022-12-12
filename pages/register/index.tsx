@@ -25,7 +25,7 @@ const RegisterPage = ({
 
   if (session) {
     router.push("/secret-page");
-  } else if (status === "unauthenticated") {
+  } else if (status === "loading") {
     return (
       <div style={{ textAlign: "center", marginTop: "50px" }}>
         <h1>Loading...</h1>
