@@ -26,9 +26,11 @@ const RegisterPage = ({
   if (session) {
     router.push("/secret-page");
   } else if (status === "unauthenticated") {
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Loading...</h1>
-    </div>;
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <h1>Loading...</h1>
+      </div>
+    );
   }
 
   const notify = (error: any) =>
