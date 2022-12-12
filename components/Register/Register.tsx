@@ -7,9 +7,14 @@ type registerProps = {
     username: string;
     password: string;
   }) => void;
+  ipAddress: {
+    status: string;
+    city: string;
+    region: string;
+  };
 };
 
-const Register = ({ onAddUser }: registerProps) => {
+const Register = ({ onAddUser, ipAddress }: registerProps) => {
   const refEmail = useRef<HTMLInputElement>(null);
   const refUsername = useRef<HTMLInputElement>(null);
   const refPassword = useRef<HTMLInputElement>(null);
@@ -20,17 +25,20 @@ const Register = ({ onAddUser }: registerProps) => {
     const enteredEmail = refEmail.current!.value;
     const enteredUsername = refUsername.current!.value;
     const enteredPassword = refPassword.current!.value;
-    const today = Date.now();
 
     const registerData = {
       email: enteredEmail,
       username: enteredUsername,
       password: enteredPassword,
-      _createdAt: new Date(today).toISOString(),
     };
 
     onAddUser(registerData);
   };
+
+  if (ipAddress.status === "fail") {
+    ipAddress.city = "Ghost Town";
+    ipAddress.region = "Nowhere";
+  }
 
   return (
     <div className={styles.homePageContainer}>
@@ -62,6 +70,11 @@ const Register = ({ onAddUser }: registerProps) => {
             <button>ENVIAR</button>
           </div>
         </form>
+        <div className={styles.ipContainer}>
+          <h4>
+            Localização: {ipAddress.city} / {ipAddress.region}
+          </h4>
+        </div>
       </div>
     </div>
   );

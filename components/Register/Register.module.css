@@ -15,7 +15,7 @@
   align-items: center;
   border: 1px solid white;
   width: 500px;
-  height: 500px;
+  height: 550px;
   margin: auto;
   background-color: black;
   border-radius: 30px;
@@ -89,4 +89,9 @@
 .buttonRegister button:hover {
   color: #00ff51ff;
   border: 3px solid #00ff51ff;
+}
+
+.ipContainer h4 {
+  padding-top: 13px;
+  color: #00ff51ff;
 }

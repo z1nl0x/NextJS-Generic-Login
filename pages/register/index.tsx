@@ -1,6 +1,14 @@
 import React from "react";
 import Register from "../../components/Register/Register";
 import { useRouter } from "next/router";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+} from "next";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSession } from "next-auth/react";
 
 type userRegisterData = {
   email: string;
@@ -8,11 +16,30 @@ type userRegisterData = {
   password: string;
 };
 
-const RegisterPage = () => {
+const RegisterPage = ({
+  ipInfo,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const { data: session, status } = useSession();
   const router = useRouter();
 
+  if (status === "authenticated") {
+    router.push("/secret-page");
+  }
+
+  const notify = (error: any) =>
+    toast.warn(`${error}`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
   const addUserHandler = async (enteredUserData: userRegisterData) => {
-    const response = await fetch("/api/register", {
+    const response = await fetch("/api/auth/register", {
       method: "POST",
       body: JSON.stringify(enteredUserData),
       headers: {
@@ -20,18 +47,38 @@ const RegisterPage = () => {
       },
     });
 
-    const data = await response.json();
+    const { msg, error } = await response.json();
 
-    console.log(data);
+    if (error) {
+      notify(error);
+    }
 
     router.push("/");
   };
 
   return (
     <>
-      <Register onAddUser={addUserHandler} />
+      <Register onAddUser={addUserHandler} ipAddress={ipInfo} />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const { req, res } = context;
+
+  const userIp = req.socket.remoteAddress;
+
+  const completeIpInfo = await fetch(`http://ip-api.com/json/${userIp}`);
+
+  const ipData = await completeIpInfo.json();
+
+  return {
+    props: {
+      ipInfo: ipData,
+    },
+  };
 };
 
 export default RegisterPage;
