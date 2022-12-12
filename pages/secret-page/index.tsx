@@ -15,6 +15,7 @@ const SecretPage = () => {
   );
 
   if (status === "unauthenticated") {
+    content = <></>;
     router.push("/");
   }
 
