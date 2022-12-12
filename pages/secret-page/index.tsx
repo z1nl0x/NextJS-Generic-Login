@@ -1,8 +1,10 @@
 import styles from "./secret-page.module.css";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const SecretPage = () => {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   let content = (
     <div>
@@ -13,11 +15,7 @@ const SecretPage = () => {
   );
 
   if (status === "unauthenticated") {
-    content = (
-      <div>
-        <h1 className={styles.titleNotAuth}>ACESSO NÃO AUTORIZADO!</h1>
-      </div>
-    );
+    router.push("/");
   }
 
   return <>{content}</>;
