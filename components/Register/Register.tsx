@@ -6,6 +6,7 @@ type registerProps = {
     email: string;
     username: string;
     password: string;
+    key: string;
   }) => void;
   ipAddress: {
     status: string;
@@ -18,6 +19,7 @@ const Register = ({ onAddUser, ipAddress }: registerProps) => {
   const refEmail = useRef<HTMLInputElement>(null);
   const refUsername = useRef<HTMLInputElement>(null);
   const refPassword = useRef<HTMLInputElement>(null);
+  const refKey = useRef<HTMLInputElement>(null);
 
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
@@ -25,11 +27,13 @@ const Register = ({ onAddUser, ipAddress }: registerProps) => {
     const enteredEmail = refEmail.current!.value;
     const enteredUsername = refUsername.current!.value;
     const enteredPassword = refPassword.current!.value;
+    const enteredKey = refKey.current!.value;
 
     const registerData = {
       email: enteredEmail,
       username: enteredUsername,
       password: enteredPassword,
+      key: enteredKey,
     };
 
     onAddUser(registerData);
@@ -65,6 +69,10 @@ const Register = ({ onAddUser, ipAddress }: registerProps) => {
             <div>
               <input type="password" ref={refPassword} required />
             </div>
+          </div>
+          <div className={styles.inputKey}>
+            <label htmlFor="password">P-Key</label>
+            <input type="password" ref={refKey} required />
           </div>
           <div className={styles.buttonRegister}>
             <button>ENVIAR</button>

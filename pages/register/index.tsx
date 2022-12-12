@@ -14,6 +14,7 @@ type userRegisterData = {
   email: string;
   username: string;
   password: string;
+  key: string;
 };
 
 const RegisterPage = ({
@@ -51,9 +52,9 @@ const RegisterPage = ({
 
     if (error) {
       notify(error);
+    } else {
+      router.push("/");
     }
-
-    router.push("/");
   };
 
   return (

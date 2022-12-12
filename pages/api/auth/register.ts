@@ -47,7 +47,7 @@ export default async function handler(
   // validate if it is a POST
   if (req.method === "POST") {
     // get and validate body variables
-    const { username, email, password } = req.body;
+    const { username, email, password, key } = req.body;
 
     const errorMessage = await validateForm(username, email, password);
     if (errorMessage) {
@@ -58,23 +58,29 @@ export default async function handler(
     // hash password
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    // create new User on MongoDB
-    const newUser = new User({
-      username: username,
-      email: email,
-      password: hashedPassword,
-    });
+    const isKeyValid = await bcrypt.compare(key, process.env.REGISTER_KEY);
 
-    newUser
-      .save()
-      .then(() =>
-        res
-          .status(200)
-          .json({ msg: "Novo usuário criado com sucesso: " + newUser })
-      )
-      .catch((err: string) =>
-        res.status(400).json({ error: "Error em '/api/register': " + err })
-      );
+    if (!isKeyValid) {
+      return res.status(400).json({ error: "P-key incorreta" });
+    } else {
+      // create new User on MongoDB
+      const newUser = new User({
+        username: username,
+        email: email,
+        password: hashedPassword,
+      });
+
+      newUser
+        .save()
+        .then(() =>
+          res
+            .status(200)
+            .json({ msg: "Novo usuário criado com sucesso: " + newUser })
+        )
+        .catch((err: string) =>
+          res.status(400).json({ error: "Error em '/api/register': " + err })
+        );
+    }
   } else {
     return res
       .status(200)

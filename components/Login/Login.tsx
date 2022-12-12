@@ -40,13 +40,15 @@ function Login({ ipAddress }: Props) {
       email: enteredEmail,
       password: enteredPassword,
       redirect: false,
+      callbackUrl: "/secret-page",
     });
 
     if (res.error) {
       notify(res.error);
-    } else {
-      router.push("/secret-page");
     }
+    // else if (res.error === null) {
+    //   router.push("/secret-page");
+    // }
   };
 
   if (ipAddress.status === "fail") {

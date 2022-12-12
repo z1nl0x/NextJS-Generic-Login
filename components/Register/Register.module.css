@@ -15,7 +15,7 @@
   align-items: center;
   border: 1px solid white;
   width: 500px;
-  height: 550px;
+  height: 630px;
   margin: auto;
   background-color: black;
   border-radius: 30px;
@@ -94,4 +94,13 @@
 .ipContainer h4 {
   padding-top: 13px;
   color: #00ff51ff;
+}
+
+.inputKey {
+  margin-bottom: 37px;
+}
+
+.inputKey input {
+  width: 135px !important;
+  margin-left: 17px;
 }
