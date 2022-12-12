@@ -6,20 +6,21 @@ const SecretPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  let content = (
-    <div>
-      <h1 className={styles.titleH1}>
-        SEJA BEM-VINDO(A) USUÁRIO(A) - {session?.user?.email}
-      </h1>
-    </div>
-  );
-
   if (status === "unauthenticated") {
-    content = <></>;
     router.push("/");
+  } else if (status === "loading") {
+    return <div className={styles.titleH1}>Loading...</div>;
+  } else {
+    return (
+      <>
+        <div>
+          <h1 className={styles.titleH1}>
+            SEJA BEM-VINDO(A) USUÁRIO(A) - {session?.user?.email}
+          </h1>
+        </div>
+      </>
+    );
   }
-
-  return <>{content}</>;
 };
 
 export default SecretPage;
