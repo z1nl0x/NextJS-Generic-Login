@@ -15,7 +15,7 @@ const Navbar = () => {
       <Link
         href="/"
         onClick={() => {
-          signOut({ callbackUrl: `${process.env.VERCEL_URL}`, redirect: true });
+          signOut({ callbackUrl: `${window.location.origin}` });
         }}
       >
         <li>LOGOUT</li>
