@@ -13,7 +13,13 @@ export default function Home({
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  if (status === "authenticated") {
+  if (status === "loading") {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  } else if (status === "authenticated") {
     router.push("/secret-page");
   }
 
