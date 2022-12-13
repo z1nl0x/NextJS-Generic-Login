@@ -85,9 +85,12 @@ export const getServerSideProps: GetServerSideProps = async (
     ip = req.socket.remoteAddress;
   }
 
+  const dataInfo = await fetch(`http://ip-api.com/json/${ip}`);
+  const data = await dataInfo.json();
+
   return {
     props: {
-      ipInfo: ip,
+      ipInfo: data,
     },
   };
 };
