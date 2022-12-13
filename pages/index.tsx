@@ -13,6 +13,8 @@ export default function Home({
   const { data: session, status } = useSession();
   const router = useRouter();
 
+  // console.log(ipInfo);
+
   if (session) {
     router.push("/secret-page");
   } else if (status === "loading") {
@@ -34,10 +36,9 @@ export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
   const { req, res } = context;
+  const requestIp = require("request-ip");
 
-  const userIp = req.socket.localAddress;
-
-  console.log(userIp);
+  const userIp = requestIp.getClientIp(req);
 
   const completeIpInfo = await fetch(`http://ip-api.com/json/${userIp}`);
 
