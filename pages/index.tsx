@@ -13,6 +13,8 @@ export default function Home({
   const { data: session, status } = useSession();
   const router = useRouter();
 
+  console.log(ipInfo);
+
   if (session) {
     router.push("/secret-page");
   } else if (status === "loading") {
