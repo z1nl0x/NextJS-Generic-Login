@@ -2,11 +2,11 @@
 
 Uma aplicação simples que permite o usuário realizar o Login e o Logout da mesma, protegendo algumas páginas se o mesmo não estiver autenticado. Implementando assim Autenticação e Autorização. As tecnologias utilizadas no desenvolvimento foram MongoDB como DB para persistir os usuários que se cadastraram, e o NextAuth para realizar o processo de SignIn e SignOut e proteção de rotas/páginas configurado para utilizar o JWT(JSON Web Tokens) e cookies para armazenamento desse token, e claro o bcrypt para realizar os hashs nos passwords dos usuários e também verifica-los quando necessário na aplicação.
 
----
-
 ### Live demo
 
 - [Generic Login App](https://nextjs-login-2077.vercel.app/ "Login App Homepage")
+
+---
 
 ### É preciso ter a versão LTS do NodeJS instalado na máquina antes de todo o procedimento daqui descrito - ultima versão LTS até o momento da finalização deste projeto é (18.12.1)
 
