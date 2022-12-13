@@ -51,10 +51,10 @@ function Login({ ipAddress }: Props) {
     // }
   };
 
-  if (ipAddress.status === "fail") {
-    ipAddress.city = "Ghost Town";
-    ipAddress.region = "Nowhere";
-  }
+  // if (ipAddress.status === "fail") {
+  //   ipAddress.city = "Ghost Town";
+  //   ipAddress.region = "Nowhere";
+  // }
 
   return (
     <div className={styles.homePageContainer}>
@@ -81,9 +81,7 @@ function Login({ ipAddress }: Props) {
           </div>
         </form>
         <div className={styles.ipContainer}>
-          <h4>
-            Localização: {ipAddress.city} / {ipAddress.region}
-          </h4>
+          <h4>{`Localização: ${ipAddress}`}</h4>
         </div>
       </div>
     </div>

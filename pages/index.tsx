@@ -36,17 +36,28 @@ export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
   const { req, res } = context;
-  const requestIp = require("request-ip");
 
-  const userIp = requestIp.getClientIp(req);
+  let ip;
 
-  const completeIpInfo = await fetch(`http://ip-api.com/json/${userIp}`);
+  if (req.headers["x-forwarded-for"]) {
+    ip = (req.headers["x-forwarded-for"] as string).split(",")[0];
+  } else if (req.headers["x-real-ip"]) {
+    ip = req.connection.remoteAddress;
+  } else {
+    ip = req.connection.remoteAddress;
+  }
 
-  const ipData = await completeIpInfo.json();
+  // const requestIp = require("request-ip");
+
+  // const userIp = requestIp.getClientIp(req);
+
+  // const completeIpInfo = await fetch(`http://ip-api.com/json/${userIp}`);
+
+  // const ipData = await completeIpInfo.json();
 
   return {
     props: {
-      ipInfo: ipData,
+      ipInfo: ip,
     },
   };
 };
