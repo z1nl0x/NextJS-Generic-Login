@@ -37,3 +37,19 @@
 .containerIp h4 {
   color: greenyellow;
 }
+
+@media (max-width: 800px) {
+  .imgLogo {
+    left: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mainNav li {
+    font-size: 14px;
+  }
+
+  .mainNav ul {
+    margin-right: 0;
+  }
+}

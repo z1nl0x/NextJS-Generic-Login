@@ -8,12 +8,7 @@ const Navbar = () => {
   const { data: session, status } = useSession();
 
   if (status === "loading") {
-    return (
-      // <div style={{ textAlign: "center", marginTop: "50px" }}>
-
-      // </div>
-      <></>
-    );
+    return <></>;
   }
 
   let content = (
