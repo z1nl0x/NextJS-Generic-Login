@@ -13,6 +13,8 @@ export default function Home({
   const { data: session, status } = useSession();
   const router = useRouter();
 
+  console.log(ipInfo);
+
   if (session) {
     router.push("/secret-page");
   } else if (status === "loading") {
@@ -46,10 +48,11 @@ export const getServerSideProps: GetServerSideProps = async (
   }
 
   const dataInfo = await fetch(`http://ip-api.com/json/${ip}`);
+  const data = await dataInfo.json();
 
   return {
     props: {
-      ipInfo: dataInfo,
+      ipInfo: data,
     },
   };
 };
