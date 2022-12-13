@@ -6,7 +6,7 @@ Uma aplicação simples que permite o usuário realizar o Login e o Logout da me
 
 - Acesse para fazer o download e a instalação do mesmo no endereço: https://nodejs.org/
 
-#### Instalação e Configuração do Projeto para rodar direto na tua máquina
+### Instalação e Configuração do Projeto para rodar direto na tua máquina
 
 - Baixe os arquivos e extraia a pasta NEXTJS-GENERIC-LOGIN.
 
@@ -24,6 +24,6 @@ NODE_ENV=development
 REGISTER_KEY=HashedKeyThatYouChooseButWith12SaltAsAnOption  - Ex: \$2a\$12\$cXAPpGeA79EwsaVhsGarl.bdOAQO.zplRvLI1uN5MlwJJz5qOKTtO
 ```
 
-#### Inicializando a Aplicação NextJS Generic Login
+### Inicializando a Aplicação NextJS Generic Login
 
 - No mesmo diretório "NEXTJS-GENERIC-LOGIN" abra o terminal/prompt de comandos e digite: npm start (Para inicializar a aplicação).
