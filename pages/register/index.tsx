@@ -80,9 +80,9 @@ export const getServerSideProps: GetServerSideProps = async (
   if (req.headers["x-forwarded-for"]) {
     ip = (req.headers["x-forwarded-for"] as string).split(",")[0];
   } else if (req.headers["x-real-ip"]) {
-    ip = req.connection.remoteAddress;
+    ip = req.socket.remoteAddress;
   } else {
-    ip = req.connection.remoteAddress;
+    ip = req.socket.remoteAddress;
   }
 
   return {
