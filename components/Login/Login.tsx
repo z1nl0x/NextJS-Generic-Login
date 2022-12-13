@@ -46,15 +46,12 @@ function Login({ ipAddress }: Props) {
     if (res.error) {
       notify(res.error);
     }
-    // else if (res.error === null) {
-    //   router.push("/secret-page");
-    // }
   };
 
-  // if (ipAddress.status === "fail") {
-  //   ipAddress.city = "Ghost Town";
-  //   ipAddress.region = "Nowhere";
-  // }
+  if (ipAddress.status === "fail") {
+    ipAddress.city = "Ghost Town";
+    ipAddress.region = "Nowhere";
+  }
 
   return (
     <div className={styles.homePageContainer}>

@@ -13,8 +13,6 @@ export default function Home({
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  // console.log(ipInfo);
-
   if (session) {
     router.push("/secret-page");
   } else if (status === "loading") {
@@ -47,17 +45,11 @@ export const getServerSideProps: GetServerSideProps = async (
     ip = req.connection.remoteAddress;
   }
 
-  // const requestIp = require("request-ip");
-
-  // const userIp = requestIp.getClientIp(req);
-
-  // const completeIpInfo = await fetch(`http://ip-api.com/json/${userIp}`);
-
-  // const ipData = await completeIpInfo.json();
+  const dataInfo = await fetch(`http://ip-api.com/json/${ip}`);
 
   return {
     props: {
-      ipInfo: ip,
+      ipInfo: dataInfo,
     },
   };
 };
