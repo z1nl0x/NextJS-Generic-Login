@@ -75,15 +75,19 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
   const { req, res } = context;
 
-  const userIp = req.socket.remoteAddress;
+  let ip;
 
-  const completeIpInfo = await fetch(`http://ip-api.com/json/${userIp}`);
-
-  const ipData = await completeIpInfo.json();
+  if (req.headers["x-forwarded-for"]) {
+    ip = (req.headers["x-forwarded-for"] as string).split(",")[0];
+  } else if (req.headers["x-real-ip"]) {
+    ip = req.connection.remoteAddress;
+  } else {
+    ip = req.connection.remoteAddress;
+  }
 
   return {
     props: {
-      ipInfo: ipData,
+      ipInfo: ip,
     },
   };
 };
