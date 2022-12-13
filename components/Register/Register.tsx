@@ -79,9 +79,7 @@ const Register = ({ onAddUser, ipAddress }: registerProps) => {
           </div>
         </form>
         <div className={styles.ipContainer}>
-          <h4>
-            Localização: {ipAddress.city} / {ipAddress.region}
-          </h4>
+          <h4>{`Localização: ${ipAddress.city} - ${ipAddress.region}`}</h4>
         </div>
       </div>
     </div>
