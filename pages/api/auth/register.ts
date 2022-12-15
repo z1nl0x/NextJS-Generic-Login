@@ -20,7 +20,7 @@ const validateForm = async (
   password: string
 ) => {
   if (username.length < 3) {
-    return { error: "Username must have 3 or more characters" };
+    return { error: "Username deve ter no mínimo 3 caracteres!" };
   }
   if (!validateEmail(email)) {
     return { error: "Email inválido!" };

@@ -114,3 +114,25 @@
     font-size: 23px;
   }
 }
+
+@media (max-width: 350px) {
+  .formContainer {
+    width: 300px;
+  }
+
+  .loginForm label {
+    font-size: 13px;
+  }
+
+  .ipContainer h4 {
+    font-size: 11px;
+  }
+
+  .loginForm input {
+    width: 277px;
+  }
+
+  .titleLoginCard {
+    font-size: 17px;
+  }
+}

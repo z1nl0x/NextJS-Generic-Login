@@ -53,3 +53,13 @@
     margin-right: 0;
   }
 }
+
+@media (max-width: 350px) {
+  .mainNav ul {
+    margin-top: 43px;
+  }
+
+  .mainNav li {
+    font-size: 11px;
+  }
+}
