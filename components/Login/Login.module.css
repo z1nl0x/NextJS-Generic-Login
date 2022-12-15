@@ -118,6 +118,7 @@
 @media (max-width: 390px) {
   .formContainer {
     width: 261px;
+    height: 443px;
   }
 
   .loginForm label {
