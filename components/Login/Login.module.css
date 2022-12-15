@@ -115,9 +115,9 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 390px) {
   .formContainer {
-    width: 300px;
+    width: 261px;
   }
 
   .loginForm label {
@@ -125,14 +125,19 @@
   }
 
   .ipContainer h4 {
-    font-size: 11px;
+    font-size: 9px;
   }
 
   .loginForm input {
-    width: 277px;
+    width: 197px;
   }
 
   .titleLoginCard {
     font-size: 17px;
+  }
+
+  .loginForm input:hover,
+  .loginForm input:focus {
+    width: 197px;
   }
 }

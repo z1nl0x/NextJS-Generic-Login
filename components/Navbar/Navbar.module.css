@@ -54,6 +54,16 @@
   }
 }
 
+@media (max-width: 390px) {
+  .mainNav ul {
+    margin-top: 43px;
+  }
+
+  .mainNav li {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 350px) {
   .mainNav ul {
     margin-top: 43px;
@@ -61,5 +71,9 @@
 
   .mainNav li {
     font-size: 11px;
+  }
+
+  .imgLogo {
+    left: -7px;
   }
 }

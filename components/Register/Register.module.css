@@ -118,7 +118,41 @@
     font-size: 13px;
   }
 
-  .loginForm input {
+  .loginForm input,
+  .loginForm input:hover,
+  .loginForm input:focus {
     width: 277px;
+  }
+}
+
+@media (max-width: 390px) {
+  .formContainer {
+    width: 261px;
+  }
+
+  .loginForm label {
+    font-size: 13px;
+  }
+
+  .ipContainer h4 {
+    font-size: 9px;
+  }
+
+  .loginForm input {
+    width: 197px;
+  }
+
+  .titleLoginCard {
+    font-size: 17px;
+  }
+
+  .loginForm input:hover,
+  .loginForm input:focus {
+    width: 197px;
+  }
+
+  .inputKey input {
+    width: 125px !important;
+    margin-left: 17px;
   }
 }
